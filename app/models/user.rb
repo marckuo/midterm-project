@@ -4,12 +4,12 @@ class User < ActiveRecord::Base
   has_many :matches
   has_many :reviews
 
-  validates :first_name, presence: true, length: { maximum: 20 }
-  validates :last_name, presence: true, length: { maximum: 20 }
-  validates :username, presence: true, uniqueness: true, length: {minimum: 3, maximum: 20}
-  validates :email, presence: true, uniqueness: true
-  validates :phone, presence: true
-  validates :birthday, presence: true
-  validates :profile_pic, presence: true
+  #validates :first_name
+  #validates :last_name
+  validates :username, presence: true
+  #validates :email
+  #validates :phone
+  #validates :birthday
+  #validates :profile_pic
 
 end
