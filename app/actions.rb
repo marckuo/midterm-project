@@ -6,6 +6,10 @@ get '/' do
   erb :index
 end
 
+get '/login' do
+  erb :login
+end
+
 #new user sign-up
 #saves - goes to user welcome page
 #does not save and reloads with errors listed
@@ -24,7 +28,7 @@ post '/new' do
   if @user.save
     redirect '/welcome'
   else
-    redirect '/new'
+    redirect '/signup'
   end
 end
 
