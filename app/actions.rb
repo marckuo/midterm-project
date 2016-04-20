@@ -22,9 +22,10 @@ def user_authenticate!
 end
 
 #new user sign-up
+
 #saves - goes to user welcome page
 #does not save and reloads with errors listed
-post '/new' do
+post '/signup' do
   @user = User.new(
     first_name: params[:first_name],
     last_name: params[:last_name],
@@ -37,7 +38,7 @@ post '/new' do
     )
   @user.save
   if @user.save
-    redirect '/welcome'
+    redirect '/login'
   else
     redirect '/signup'
   end
@@ -51,7 +52,7 @@ post '/login' do
   if user && user.authenticate(params[:password])
     session[:session_token] = SecureRandom.urlsafe_base64()
     user.update!(session_token: session[:session_token])
-    redirect '/login'
+    redirect '/welcome'
   else
     redirect '/login'
   end
