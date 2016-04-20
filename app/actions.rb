@@ -51,7 +51,7 @@ post '/login' do
   if user && user.authenticate(params[:password])
     session[:session_token] = SecureRandom.urlsafe_base64()
     user.update!(session_token: session[:session_token])
-    redirect '/welcome'
+    redirect '/login'
   else
     redirect '/login'
   end
