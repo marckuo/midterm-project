@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160420170447) do
 
-  create_table "match", force: :cascade do |t|
+  create_table "matches", force: :cascade do |t|
     t.datetime "created_at"
     t.string   "address"
     t.integer  "player_one_id"
