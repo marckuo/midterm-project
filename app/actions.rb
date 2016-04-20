@@ -6,8 +6,16 @@ get '/' do
   erb :index
 end
 
+
 get '/login' do
   erb :login
+end
+
+def user_authenticate!
+  redirect '/login' unless session.has_key?(:session_token)
+  if !session.has_key?(:user_session) || !User.find_by_session_token(session[:session_token])
+    redirect '/login'
+  end
 end
 
 #new user sign-up
@@ -46,14 +54,17 @@ post '/login' do
   end
 end
 
-def user_authenticate!
-  redirect '/login' unless session.has_key?(:session_token)
-  if !session.has_key?(:user_session) || !User.find_by_session_token(session[:session_token])
-    redirect '/login'
-  end
-end
-
+#welcome page when users sign in
 get '/welcome' do
   user_authenticate! 
   erb :welcome
+end
+
+
+
+#logout
+get '/session/sign_out' do
+  User.find_by_session_token(session[:session_token]).update!(session_token: nil)
+  session.clear
+  redirect '/login'
 end
