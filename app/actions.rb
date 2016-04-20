@@ -10,7 +10,7 @@ end
 #saves - goes to user welcome page
 #does not save - reloads
 post '/new' do
-  @user = User.create(
+  @user = User.new(
     first_name: params[:first_name],
     last_name: params[:last_name],
     username: params[:username],
