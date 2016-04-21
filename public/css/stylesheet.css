@@ -1,0 +1,76 @@
+/*TEXT*/
+
+/*NAVBAR START*/
+/*navbar text color*/
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a {
+  color:black;
+  font-family:"Fira Sans";
+  font-size:1em;
+  font-style: bold;
+}
+
+/*navbar text color hover*/
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+  color:#f70c1f;
+  background-color: #FFFFFF;
+  transition: 0.8s;
+}
+
+/*navbar background color*/
+.navbar-inverse {
+  background-color: #e1e3e4;
+  color: red;
+  border: none;
+}
+
+/*navbar brand color*/
+.navbar-inverse .navbar-brand {
+  color:#f70c1f;
+  font-family:"Fira Sans";
+  font-size:2.25em;
+  font-weight: 900;
+}
+
+.navbar-inverse .navbar-brand:hover {
+  color:#f70c1f;
+}
+/*NAVBAR END*/
+
+/*TEXT*/
+
+
+h2 {
+  font-family:"Fira Sans"
+  font-style: bold;
+}
+
+.jumbotron {
+  background-color: white;
+}
+
+.test {
+  font-size: 5em;
+  font-family:"Fira Sans";
+  color:#000000;
+}
+
+
+
+.carousel {
+  padding-top: 50px;
+}
+
+.carousel-caption {
+    color: white;
+    text-align: center;
+    /*top: auto;*/
+  /*position: relative;*/
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: initial;
+}
+
+
+.footerp {
+  text-align: center;
+}
