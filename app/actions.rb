@@ -20,7 +20,6 @@ get '/welcome' do
 end
 
 
-
 def user_authenticate!
   redirect '/login' unless session.has_key?(:session_token)
   if !session.has_key?(:user_session) || !User.find_by_session_token(session[:session_token])
@@ -50,7 +49,6 @@ post '/signup' do
      end   
 end
 
-
 post '/session' do
   user = User.find_by_username(params[:username])
   if user && user.authenticate(params[:password])
@@ -61,8 +59,6 @@ post '/session' do
     redirect '/login'
   end
 end
-
-
 
 # post '/login' do
 #   user = User.find_by_username(params[:username])
