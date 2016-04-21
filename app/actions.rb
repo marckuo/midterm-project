@@ -1,5 +1,6 @@
 # Homepage (Root path)
 require 'securerandom'
+require 'haml'
 
 #this is home page
 get '/' do
@@ -18,6 +19,16 @@ get '/welcome' do
   @user = User.find_by_session_token(session[:session_token])
   erb :welcome
 end
+
+get '/profilepage' do
+  @user = User.find_by_session_token(session[:session_token])
+  erb :profilepage
+end
+
+get "/upload" do
+  @user = User.find_by_session_token(session[:session_token])
+  haml :upload
+end      
 
 
 def user_authenticate!
@@ -58,6 +69,15 @@ post '/session' do
   else
     redirect '/login'
   end
+end
+
+
+post "/upload" do 
+  @user = User.find_by_session_token(session[:session_token])
+  File.open('uploads/' + @user.id.to_s, "w") do |f|
+    f.write(params['myfile'][:tempfile].read)
+  end
+  return "The file was successfully uploaded!"
 end
 
 # post '/login' do

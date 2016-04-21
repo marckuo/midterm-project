@@ -11,6 +11,7 @@ gem 'sinatra-activerecord'
 gem 'puma'
 gem 'tux'
 gem 'bcrypt'
+gem 'haml'
 
 group :development, :test do
   gem 'pry'
