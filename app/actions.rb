@@ -50,9 +50,11 @@ end
 post '/login' do
   user = User.find_by_username(params[:username])
   if user && user.authenticate(params[:password])
+    binding.pry
     session[:session_token] = SecureRandom.urlsafe_base64()
     user.update!(session_token: session[:session_token])
     redirect '/welcome'
+      binding.pry
   else
     redirect '/login'
   end
