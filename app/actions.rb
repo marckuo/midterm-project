@@ -80,21 +80,6 @@ post "/upload" do
   return "The file was successfully uploaded!"
 end
 
-# post '/login' do
-#   user = User.find_by_username(params[:username])
-#   if user && user.authenticate(params[:password])
-#     binding.pry
-#     session[:session_token] = SecureRandom.urlsafe_base64()
-#     user.update!(session_token: session[:session_token])
-#     redirect '/welcome'
-# <<<<<<< HEAD
-# =======
-#       binding.pry
-# >>>>>>> 1146fd600235f85b8fc0f2b4b20cf7d551c096b8
-#   else
-#     redirect '/login'
-#   end
-# end
 
 #welcome page when users sign in
 # get '/welcome' do
@@ -102,6 +87,16 @@ end
 #   erb :welcome
 # end
 
+
+
+
+post '/create' do
+ @user = User.find_by_session_token(session[:session_token])
+ @match = Match.create(
+   sport_id: params[:sport_id].to_i,
+   player_one_id: @user.id
+ )
+end
 
 
 #logout
