@@ -22,6 +22,7 @@ def user_authenticate!
 end
 
 #new user sign-up
+
 #saves - goes to user welcome page
 #does not save and reloads with errors listed
 post '/signup' do
@@ -70,9 +71,14 @@ end
 post '/login' do
   user = User.find_by_username(params[:username])
   if user && user.authenticate(params[:password])
+    binding.pry
     session[:session_token] = SecureRandom.urlsafe_base64()
     user.update!(session_token: session[:session_token])
     redirect '/welcome'
+<<<<<<< HEAD
+=======
+      binding.pry
+>>>>>>> 1146fd600235f85b8fc0f2b4b20cf7d551c096b8
   else
     redirect '/login'
   end
