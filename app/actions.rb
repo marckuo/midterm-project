@@ -24,25 +24,46 @@ end
 #new user sign-up
 #saves - goes to user welcome page
 #does not save and reloads with errors listed
-post '/new' do
-  @user = User.new(
-    first_name: params[:first_name],
-    last_name: params[:last_name],
-    username: params[:username],
-    password_digest: params[:password_digest],
-    email: params[:email],
-    phone: params[:phone],
-    birthday: params[:birthday],
-    profile_pic: params[:profile_pic]
-    )
-  @user.save
-  if @user.save
-    redirect '/welcome'
-  else
-    redirect '/signup'
-  end
+post '/signup' do
+      @user = User.new(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      username: params[:username],
+      password: params[:password],
+      email: params[:email],
+      phone: params[:phone],
+      birthday: params[:birthday],
+      profile_pic: params[:profile_pic]
+      )
+      if @user.save
+        redirect '/login'
+      else
+        erb :'/401'
+     end   
 end
 
+
+
+
+
+# post '/signup' do
+#   @user = User.new(
+#     first_name: params[:first_name],
+#     last_name: params[:last_name],
+#     username: params[:username],
+#     password_digest: params[:password_digest],
+#     email: params[:email],
+#     phone: params[:phone],
+#     birthday: params[:birthday],
+#     profile_pic: params[:profile_pic]
+#     )
+#   @user.save
+#   if @user.save
+#     redirect '/login'
+#   else
+#     redirect '/signup'
+#   end
+# end
 #sign-in page
 #if username and password if true relocate to welcome page
 #false, has login with errors listed
@@ -51,7 +72,7 @@ post '/login' do
   if user && user.authenticate(params[:password])
     session[:session_token] = SecureRandom.urlsafe_base64()
     user.update!(session_token: session[:session_token])
-    redirect '/login'
+    redirect '/welcome'
   else
     redirect '/login'
   end
