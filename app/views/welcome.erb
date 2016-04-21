@@ -1,8 +1,16 @@
-<h1> </br>
 
-Welcome, 
-<%= @user.username %>
 </br>
-</h1>
+<h1> <%= @user.last_name %></h1>
+
+
+<hr/>
+
+<form action='/create' method="POST">
+ <label>Sport</label>
+   <input name="sport_id" value=4></input>
+   <input type="submit"></input>
+</form>
+
+
 
 <h2><a href = "/profilepage">profile page</a></h2>
