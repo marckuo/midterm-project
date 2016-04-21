@@ -43,31 +43,6 @@ post '/signup' do
      end   
 end
 
-
-
-
-
-# post '/signup' do
-#   @user = User.new(
-#     first_name: params[:first_name],
-#     last_name: params[:last_name],
-#     username: params[:username],
-#     password_digest: params[:password_digest],
-#     email: params[:email],
-#     phone: params[:phone],
-#     birthday: params[:birthday],
-#     profile_pic: params[:profile_pic]
-#     )
-#   @user.save
-#   if @user.save
-#     redirect '/login'
-#   else
-#     redirect '/signup'
-#   end
-# end
-#sign-in page
-#if username and password if true relocate to welcome page
-#false, has login with errors listed
 post '/login' do
   user = User.find_by_username(params[:username])
   if user && user.authenticate(params[:password])
