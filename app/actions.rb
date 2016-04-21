@@ -14,6 +14,10 @@ get '/signup' do
   erb :signup
 end
 
+get '/welcome' do
+  erb :welcome
+end
+
 def user_authenticate!
   redirect '/login' unless session.has_key?(:session_token)
   if !session.has_key?(:user_session) || !User.find_by_session_token(session[:session_token])
@@ -43,21 +47,36 @@ post '/signup' do
      end   
 end
 
-post '/login' do
+
+post '/session' do
   user = User.find_by_username(params[:username])
   if user && user.authenticate(params[:password])
-    binding.pry
     session[:session_token] = SecureRandom.urlsafe_base64()
     user.update!(session_token: session[:session_token])
     redirect '/welcome'
-<<<<<<< HEAD
-=======
-      binding.pry
->>>>>>> 1146fd600235f85b8fc0f2b4b20cf7d551c096b8
   else
     redirect '/login'
   end
 end
+
+
+
+
+# post '/login' do
+#   user = User.find_by_username(params[:username])
+#   if user && user.authenticate(params[:password])
+#     binding.pry
+#     session[:session_token] = SecureRandom.urlsafe_base64()
+#     user.update!(session_token: session[:session_token])
+#     redirect '/welcome'
+# <<<<<<< HEAD
+# =======
+#       binding.pry
+# >>>>>>> 1146fd600235f85b8fc0f2b4b20cf7d551c096b8
+#   else
+#     redirect '/login'
+#   end
+# end
 
 #welcome page when users sign in
 get '/welcome' do
