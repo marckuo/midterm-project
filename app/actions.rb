@@ -15,8 +15,11 @@ get '/signup' do
 end
 
 get '/welcome' do
+  @user = User.find_by_session_token(session[:session_token])
   erb :welcome
 end
+
+
 
 def user_authenticate!
   redirect '/login' unless session.has_key?(:session_token)
@@ -61,7 +64,6 @@ end
 
 
 
-
 # post '/login' do
 #   user = User.find_by_username(params[:username])
 #   if user && user.authenticate(params[:password])
@@ -79,10 +81,10 @@ end
 # end
 
 #welcome page when users sign in
-get '/welcome' do
-  user_authenticate! 
-  erb :welcome
-end
+# get '/welcome' do
+#   user_authenticate! 
+#   erb :welcome
+# end
 
 
 

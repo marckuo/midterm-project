@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :reviews
 
   #validates :first_name
-  #validates :last_name
+  validates :last_name, presence: true
   validates :username, presence: true
   #validates :email
   #validates :phone
