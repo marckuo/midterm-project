@@ -23,6 +23,7 @@ get '/signup' do
 end
 
 get '/welcome' do
+  sesson[:sports_id] = nil
   @user = User.find_by_session_token(session[:session_token])
   erb :'welcome'
 end
@@ -151,7 +152,7 @@ post '/new_match' do
     address: params[:address],
     player_one_id: @user.id
   )
-
+  redirect '/match'
 end
 
 #logout
