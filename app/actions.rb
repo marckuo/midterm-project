@@ -87,11 +87,43 @@ end
 
 post "/upload" do 
   @user = User.find_by_session_token(session[:session_token])
-  File.open('uploads/' + @user.id.to_s, "w") do |f|
-    f.write(params['myfile'][:tempfile].read)
+  filename = @user.id.to_s
+  filepath = 'public/uploads/'
+  if (params['myfile'][:type] == "image/jpg" || params['myfile'][:type] == "image/jpeg" )
+    filename += ".jpg"
+  elsif  (params['myfile'][:type] == "image/png")
+      filename += ".png"
+  else
+    return "Invalid file"
   end
+  File.open(filepath + filename, "w") do |f|
+  f.write(params['myfile'][:tempfile].read)
+  @user.update!(profile_pic: filename )
   return "The file was successfully uploaded!"
+  end
 end
+
+
+# def function1 
+#   return whether there is an image for the user (boolean)
+# end
+
+
+# def function2
+# if @userid
+
+# <% if @user.profile_pic?
+
+
+#  "/upload.filename.to_i
+# # # display picture 
+# # else 
+# # <h2><a href = "/upload">upload</a></h2>
+
+
+
+
+# welcome to the image 
 
 
 #welcome page when users sign in

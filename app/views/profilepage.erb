@@ -15,7 +15,12 @@ Email:
 <%= @user.email %>
 </br>
 
+<% if @user.profile_pic? %>
+  <img src = "uploads/<%=@user.profile_pic%>">
+<% end %>
+
+
 <h2><a href = "/upload">upload</a></h2>
 
 
-</h1>
+</h2>
