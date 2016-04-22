@@ -160,7 +160,12 @@ post '/new_match' do
   redirect '/match'
 end
 
-post '/challenge' do 
+post '/challenge/:id' do 
+  @user = User.find_by_session_token(session[:session_token])
+  @match = Match.find (params[:id])
+  @match.player_two_id = @user.id
+  @match.save
+  erb :welcome
 end
 
 #logout
