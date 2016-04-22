@@ -100,7 +100,7 @@ post "/upload" do
   File.open(filepath + filename, "w") do |f|
   f.write(params['myfile'][:tempfile].read)
   @user.update!(profile_pic: filename )
-  return "The file was successfully uploaded!"
+  redirect '/profilepage'
   end
 end
 
@@ -140,6 +140,7 @@ post '/choice' do
 end
 
 post '/new_match' do
+
   @user = User.find_by_session_token(session[:session_token])
   @match = Match.create(
     sport_id: session[:sport_id],
