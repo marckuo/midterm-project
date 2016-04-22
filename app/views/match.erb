@@ -1,15 +1,16 @@
 <h1><a href= "/create">create page</a></h1>
 
 <p>
-  <%= @sports.find_by(session[:sport_id]).name %>
+  <%= @sports.find_by(session[:sport_id])%>
 </p>
 
 
 <% @matches.each do |match| %>
 <div>
-  <h3><%= match.id %></a></h3> <h4>(user: <%= match.player_one_id %>)</h4>
+  <h4><%= match.id %></a></h4> <h4>(created by: <%= match.player_one.username %>)</h4><h4><%= match.sport_id %></h4>
   <p>
   </p>
-  <small>(Posted at: <%= match.created_at%>
+  (Posted at: <%= match.created_at.to_date %>)
   </div>
+  <hr>  
 <% end %>

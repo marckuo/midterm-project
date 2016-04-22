@@ -12,4 +12,5 @@ class User < ActiveRecord::Base
   #validates :birthday
   #validates :profile_pic
 
+
 end
