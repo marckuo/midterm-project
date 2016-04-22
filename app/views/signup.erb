@@ -1,39 +1,49 @@
-<form action='signup' method='POST'>
-  <label>first_name:</label>
-  <input name='first_name'>
-
-  <label>last_name:</label>
-  <input name='last_name'>
-
-  <label>username:</label>
-  <input name='username'>
-
-  <label>password:</label>
-  <input name='password'>
-
-  <label>email:</label>
-  <input name='email'>
+<link href="../..css/form.css" rel="stylesheet">
 
 
-  <label>phone:</label>
-  <input name='phone'>
+<div class="container">
+<div class="row">
+<div class="col-"
+  <form action="signup" class="form-signin" method="POST">
+    <h2 class="form-signin-heading">Sign Up</h2>
+    <p>It's free and takes less than 30 seconds.</p>
+    
+    <label class=>First name:</label>
+    <input name="first_name" class="form-control">
+
+    <label>Last Name:</label>
+    <input name="last_name" class="form-control">
+
+    <label>Username:</label>
+    <input name="username" class="form-control">
+
+    <label>Password:</label>
+    <input name="password" class="form-control">
+
+    <!-- 
+    <label>password confirmation:</label>
+    <input name="password_confirmation"> -->
+
+    <label>Email:</label>
+    <input name="email" class="form-control">
 
 
-  <label>birthday:</label>
-  <input name='birthday'>
+    <label>Phone:</label>
+    <input name="phone" class="form-control">
 
 
-  <label>profile_pic:</label>
-  <input name='profile_pic'>
+    <label>Birthday:</label>
+    <input name="birthday" class="form-control">
 
 
-<!-- 
-  <label>password confirmation:</label>
-  <input name='password_confirmation'> -->
+    <label>Profile Pic:</label>
+    <input name="profile_pic" class="form-control">
 
-  <input type='submit'>
-</form>
+    <br>
 
+    <button class="btn btn-lg btn-danger btn-block" type="submit">Sign Up</button>
+  </form>
+</div>
 <!-- 
 
   first_name: params[:first_name],

@@ -3,7 +3,7 @@
 /*NAVBAR START*/
 /*navbar text color*/
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a {
-  color:black;
+  color:#FFFFFF;
   font-family:"Fira Sans";
   font-size:1em;
   font-style: bold;
@@ -13,12 +13,12 @@
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
   color:#f70c1f;
   background-color: #FFFFFF;
-  transition: 0.8s;
+  transition: .5s;
 }
 
 /*navbar background color*/
 .navbar-inverse {
-  background-color: #e1e3e4;
+  background-color: #000000;
   color: red;
   border: none;
 }
@@ -34,30 +34,56 @@
 .navbar-inverse .navbar-brand:hover {
   color:#f70c1f;
 }
+
 /*NAVBAR END*/
 
-/*TEXT*/
+/*HEADINGS*/
 
+h1 {
+  font-size:4em;
+}
 
 h2 {
   font-family:"Fira Sans"
   font-style: bold;
+  font-size:2em;
 }
+
+h3 {
+  font-family:"Fira Sans"
+  font-style: bold;
+  font-size:0.25em;
+}
+
+
+
+/*CONTAINERS*/
 
 .jumbotron {
   background-color: white;
+  
 }
 
 .test {
   font-size: 5em;
   font-family:"Fira Sans";
   color:#000000;
+  
 }
 
+.col-xs-4 {
+  text-align: center;
+}
 
+.col-xs-4 > p {
+  text-align: center;
+  font-size: 0.2em
+}
 
 .carousel {
   padding-top: 50px;
+  position:center;
+  background:black;
 }
 
 .carousel-caption {
@@ -70,7 +96,30 @@ h2 {
   bottom: initial;
 }
 
+.carousel-inner > .item > img {
+    margin: 0 auto;
+    width:100%;
+}
 
-.footerp {
+.navbar-right .navbar-form {
+  display: inline-block;
+}
+
+#menuLogin {
+  display: inline-block;
+}
+
+.footer > p {
   text-align: center;
+}
+
+.container {
+  display: inline-block;
+}
+
+.form-column {
+  background-color:rgba(255,255,255,0.5);
+  display: block;
+  margin:auto;
+  width:35% 
 }
