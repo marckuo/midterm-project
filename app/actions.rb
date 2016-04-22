@@ -155,8 +155,8 @@ post '/new_match' do
   redirect '/match'
 end
 
-  post '/challenge'
-    
+  post '/challenge' do
+
   end
 
 #logout
