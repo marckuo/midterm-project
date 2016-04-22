@@ -64,11 +64,14 @@ h3 {
   
 }
 
+.padnav {
+  padding-top:50px;
+}
+
 .test {
-  font-size: 5em;
+  font-size: 1em;
   font-family:"Fira Sans";
   color:#000000;
-  
 }
 
 .col-xs-4 {

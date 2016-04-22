@@ -5,6 +5,7 @@ enable :sessions
 
 #this is home page
 get '/' do
+  @user = User.find_by_session_token(session[:session_token])
   erb :index
 end
 
@@ -12,18 +13,23 @@ get '/login' do
   erb :login
 end
 
+get '/logout' do
+  session.clear
+  redirect '/'
+end
+
 get '/signup' do
-  erb :signup
+  erb :'signup'
 end
 
 get '/welcome' do
   @user = User.find_by_session_token(session[:session_token])
-  erb :welcome
+  erb :'welcome'
 end
 
 get '/profilepage' do
   @user = User.find_by_session_token(session[:session_token])
-  erb :profilepage
+  erb :'profilepage'
 end
 
 get "/upload" do
@@ -33,13 +39,15 @@ end
 
 get "/create" do
   @user = User.find_by_session_token(session[:session_token])
-  erb :create
+  erb :'create'
 end  
 
 get "/match" do 
   @user = User.find_by_session_token(session[:session_token])
   session[:sport_id]
-  erb :match
+  @matches = Match.all
+  @sports = Sport.all
+  erb :'match'
 end
 
 def user_authenticate!
@@ -137,12 +145,13 @@ post '/choice' do
 end
 
 post '/new_match' do
-
   @user = User.find_by_session_token(session[:session_token])
   @match = Match.create(
     sport_id: session[:sport_id],
+    address: params[:address],
     player_one_id: @user.id
   )
+
 end
 
 #logout
