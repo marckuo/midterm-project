@@ -5,11 +5,17 @@ enable :sessions
 
 #this is home page
 get '/' do
-  erb :'index'
+  @user = User.find_by_session_token(session[:session_token])
+  erb :index
 end
 
 get '/login' do
-  erb :'login'
+  erb :login
+end
+
+get '/logout' do
+  session.clear
+  redirect '/'
 end
 
 get '/signup' do
