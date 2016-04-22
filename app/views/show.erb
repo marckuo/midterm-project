@@ -1,3 +1,5 @@
 <h1><%= @match.player_one.username%></h1>
 
-  <button type="submit" name="challenge" value=1 class="transparent"> <img class="icon" src="http://www.centerforjudicialexcellence.org/wp-content/uploads/2014/09/join.jpg"></button>
+<form action='/challenge/<%= @match.id %>' method="POST">
+  <button type="submit" name="challenge" class="transparent"> <img class="icon" src="http://www.centerforjudicialexcellence.org/wp-content/uploads/2014/09/join.jpg"></button>
+  </form>
