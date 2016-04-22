@@ -1,9 +1,11 @@
 <h1><a href= "/create">create page</a></h1>
 
+<h1>Feel like playing some <%= @sport.name %> eh?</h1>
+
 
 <% @matches.each do |match| %>
 <div>
-  <h4><%= match.id %></a></h4> <h4>(created by: <%= match.player_one.username %>)</h4><h4><%= match.sport_id %></h4>
+  <h4>Opponent: <%= match.player_one.username %></h4>
   <p>
   </p>
   (Posted at: <%= match.created_at.to_date %>)

@@ -45,7 +45,6 @@ end
 get "/match" do 
   @user = User.find_by_session_token(session[:session_token])
   @sport = Sport.find_by(id: session[:sport_id])
-    # @sport = Sport.first
   @matches = @sport.matches 
   erb :'match'
 end
