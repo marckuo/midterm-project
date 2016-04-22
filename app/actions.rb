@@ -37,7 +37,6 @@ get "/create" do
 end  
 
 get "/match" do 
-  binding.pry
   @user = User.find_by_session_token(session[:session_token])
   session[:sport_id]
   @matches = Match.all
@@ -146,7 +145,7 @@ post '/new_match' do
     address: params[:address],
     player_one_id: @user.id
   )
-  erb :match
+
 end
 
 #logout
