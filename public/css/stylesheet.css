@@ -2,6 +2,11 @@
 
 /*NAVBAR START*/
 /*navbar text color*/
+
+html{
+  overflow-y: scroll; 
+}
+
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a {
   color:#FFFFFF;
   font-family:"Fira Sans";
@@ -132,7 +137,6 @@ h3 {
 .carousel {
   padding-top: 50px;
   background:black;
-  display:inline;
 }
 
 .carousel-caption {
@@ -145,7 +149,11 @@ h3 {
   bottom: initial;
 }
 
+.carousel-inner {
+}
+
 .carousel-inner > .item > img {
+    padding-top: 50px
     margin: 0 auto;
     width:100%;
 }
