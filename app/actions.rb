@@ -45,7 +45,9 @@ end
 get "/match" do 
   @user = User.find_by_session_token(session[:session_token])
   @sport = Sport.find_by(id: session[:sport_id])
-  @matches = @sport.matches 
+  @matches = @sport.matches.select do |match| 
+    match.player_one_id != @user.id && match.player_two_id == nil
+  end
   erb :'match'
 end
 
@@ -152,6 +154,10 @@ post '/new_match' do
   )
   redirect '/match'
 end
+
+  post '/challenge' do
+
+  end
 
 #logout
 get '/session/sign_out' do
