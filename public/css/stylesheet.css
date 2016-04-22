@@ -35,6 +35,15 @@
   color:#f70c1f;
 }
 
+.navbar-right .navbar-form {
+  display: inline-block;
+}
+
+#menuLogin {
+  display: inline-block;
+}
+
+
 /*NAVBAR END*/
 
 /*HEADINGS*/
@@ -44,19 +53,21 @@ h1 {
 }
 
 h2 {
-  font-family:"Fira Sans"
+  font-family:"Fira Sans";
   font-style: bold;
   font-size:2em;
 }
 
 h3 {
-  font-family:"Fira Sans"
+  font-family:"Fira Sans";
   font-style: bold;
-  font-size:0.25em;
+  font-size:1em;
 }
 
-
-
+.text-red {
+  font-family:"Fira Sans";
+  color:#f70c1f;
+}
 /*CONTAINERS*/
 
 .jumbotron {
@@ -74,19 +85,54 @@ h3 {
   color:#000000;
 }
 
+.sports .row {
+  text-align: :center;
+  margin: auto;
+}
+
 .col-xs-4 {
   text-align: center;
 }
 
 .col-xs-4 > p {
   text-align: center;
-  font-size: 0.2em
+  font-size: 1em
 }
+
+.col-xs-6 {
+  text-align: center;
+}
+
+.col-xs-6 > p {
+  text-align: center
+}
+
+/* welcome */
+
+.icon {
+  opacity:.75;
+}
+
+.icon:hover {
+  opacity: 1;
+}
+
+.col-xs-4 .sports > img {
+  width:80%;
+}
+
+/*transparent button*/
+.transparent {
+  background-color: transparent;
+  border: none;
+}
+
+/*carousel*/
 
 .carousel {
   padding-top: 50px;
-  position:center;
   background:black;
+  display:inline;
 }
 
 .carousel-caption {
@@ -102,14 +148,6 @@ h3 {
 .carousel-inner > .item > img {
     margin: 0 auto;
     width:100%;
-}
-
-.navbar-right .navbar-form {
-  display: inline-block;
-}
-
-#menuLogin {
-  display: inline-block;
 }
 
 .footer > p {
