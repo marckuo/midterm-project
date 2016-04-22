@@ -1,16 +1,20 @@
-<h1>Log-In</h1>
 
-<form action="/session" method="POST">
-<div>
-<input type="username" name="username" placeholder="username">
-</div>
-<div>
-    <input type="password" name="password" placeholder="Password">
-</div>
-<div>
-    <button type="submit">Sign In</button>
-</div>
+<div class="container padnav form-column">
+  <form action="/session" method="POST">
+  <h2>Log In</h2>
+  <p>Please enter your Username and Password.</p>
+
+  <label class=>Username:</label>
+  <input type="username" name="username" class="form-control">
+
+  <label class=>Password:</label>
+  <input type="password" name="password" class="form-control">
+
+  <br>
+
+  <button class="btn btn-lg btn-success btn-block" type="submit">Login</button>
 </form>
+</div>
 
 <!-- form action='signup' method='POST'>
   <label>first_name:</label>
