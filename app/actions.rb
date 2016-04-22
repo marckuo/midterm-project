@@ -99,7 +99,7 @@ post "/upload" do
   File.open(filepath + filename, "w") do |f|
   f.write(params['myfile'][:tempfile].read)
   @user.update!(profile_pic: filename )
-  return "The file was successfully uploaded!"
+  redirect '/profilepage'
   end
 end
 
@@ -152,7 +152,6 @@ post '/new_match' do
  )
 end
 
-end
 
 #logout
 get '/session/sign_out' do
