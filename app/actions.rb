@@ -42,9 +42,6 @@ get "/match" do
   erb :match
 end
 
-
-
-
 def user_authenticate!
   redirect '/login' unless session.has_key?(:session_token)
   if !session.has_key?(:user_session) || !User.find_by_session_token(session[:session_token])
