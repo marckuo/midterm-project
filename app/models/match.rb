@@ -2,6 +2,7 @@ class Match < ActiveRecord::Base
   
   has_many   :reviews
   # belongs_to :user
+  belongs_to :sports
   validates  :sport_id, presence: true
 
 
