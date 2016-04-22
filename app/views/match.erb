@@ -8,7 +8,9 @@
   <h4>Opponent: <%= match.player_one.username %></h4>
   <p>
   </p>
-  (Posted at: <%= match.created_at.to_date %>)
+  (Created on <%= match.created_at.to_date %>)
+
+  <button type="submit" name="challenge" value=1 class="transparent"> <img class="icon" src="http://www.centerforjudicialexcellence.org/wp-content/uploads/2014/09/join.jpg"></button>
   </div>
   <hr>  
 <% end %>
