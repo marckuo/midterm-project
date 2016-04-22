@@ -28,7 +28,20 @@ end
 get "/upload" do
   @user = User.find_by_session_token(session[:session_token])
   haml :upload
-end      
+end    
+
+get "/create" do
+  @user = User.find_by_session_token(session[:session_token])
+  erb :create
+end  
+
+get "/match" do 
+  # debugger, '@sport_id'
+  @user = User.find_by_session_token(session[:session_token])
+  erb :match
+end
+
+
 
 
 def user_authenticate!
@@ -88,16 +101,26 @@ end
 # end
 
 
+post '/choice' do
+  @sports_id = params[:sport_id]
+  # specific sport, save to user before redirecting
+  # debugger, check what '@sports_id'
+  # table for managing multiple pages/sports for a user
+  # attach sport id to session (temporarily)
+  # remove after match created
+  # temporary playing with, 
+  redirect '/match'
+end
 
-
-post '/create' do
+post '/new_match' do
  @user = User.find_by_session_token(session[:session_token])
  @match = Match.create(
-   sport_id: params[:sport_id].to_i,
+   # sport_id: params[:sport_id].to_i,
    player_one_id: @user.id
  )
 end
 
+end
 
 #logout
 get '/session/sign_out' do
