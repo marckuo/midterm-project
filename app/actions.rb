@@ -23,7 +23,6 @@ get '/signup' do
 end
 
 get '/welcome' do
-  session[:sports_id] = nil
   @user = User.find_by_session_token(session[:session_token])
   erb :'welcome'
 end
