@@ -51,6 +51,11 @@ get "/match" do
   erb :'match'
 end
 
+get "/:id" do
+  @match = Match.find params[:id]
+  erb :'show'
+end
+
 def user_authenticate!
   redirect '/login' unless session.has_key?(:session_token)
   if !session.has_key?(:user_session) || !User.find_by_session_token(session[:session_token])
@@ -155,9 +160,8 @@ post '/new_match' do
   redirect '/match'
 end
 
-  post '/challenge' do
-
-  end
+post '/challenge' do 
+end
 
 #logout
 get '/session/sign_out' do
