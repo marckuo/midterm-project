@@ -19,20 +19,14 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsemenu" 
-        aria-expanded="false">
-        <span class="sr-only">Toggle Nav</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button>
-        <a href="#" tabindex="-1"class="navbar-brand">SPORTSFLING</a>
+        <div class="navbar-brand">SPORTSFLING</div>
        </div>
 
       <div class="collapse navbar-collapse" id="collapsemenu">
         <ul class="nav navbar-nav">
         <li><a href="/#homeslider">HOME</a></li>
         <li><a href="/#how">HOW IT WORKS</a></li>
+        
         <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tab 3
           <span class="caret"></span>
           </a>
@@ -44,10 +38,22 @@
         </ul>
 
 <div class="navbar-right navbar-form">
+
   <% if @user %>
     <a href="/welcome"><button type="button" class="btn btn-success">Play Now!</button></a>
-    <a href="/logout"><button type="button" class="btn btn-danger">Logout</button></a>
-  <% else %>
+
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+      <img src="../../img/profile.svg">
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="/profilepage">Profile</a></li>
+      <li><a href="/match_history">Match History</li>
+      <li><a href="/reviews">Reviews</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+
+    </div>
+  <% else  %>
     <a href="/signup"><button type="button" class="btn btn-danger">Sign Up</button></a>
       <div class="dropdown" id="menuLogin">
         <button class="dropdown-toggle btn btn-success" type="button" href="#" data-toggle="dropdown" id="navLogin">Login</button>
@@ -69,10 +75,9 @@
 <!-- navbar end -->
   <%= yield %>
     <div class="container">
-  <footer>
+      <footer>
         <p class="text-center padnav">&copy; 2016 SportsFling, Inc.</p>
       </footer>
-      </div>
     </div>
 </body>
 </html>
