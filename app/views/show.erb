@@ -1,5 +1,15 @@
-<h1><%= @match.player_one.username%></h1>
-
-<form action='/challenge/<%= @match.id %>' method="POST">
-  <button type="submit" name="challenge" class="transparent"> <img class="icon" src="http://www.centerforjudicialexcellence.org/wp-content/uploads/2014/09/join.jpg"></button>
-  </form>
+<div class="container-fluid padnav">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-3">
+    <h1 class="text-capitalize"><%= @match.player_one.username%></h1>
+    </div>
+    <div class="col-lg-4"></div>
+    <div class="col-lg-3 padnav">
+      <form action="/challenge/<%= @match.id %>" method="POST">
+        <button type="submit" name="challenge" class="btn btn-danger">Join</button>
+      </form>
+  </div>
+    <div class="col-lg-1"></div>
+  </div>
+</div>

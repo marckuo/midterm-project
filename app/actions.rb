@@ -64,7 +64,6 @@ def user_authenticate!
 end
 
 #new user sign-up
-
 #saves - goes to user welcome page
 #does not save and reloads with errors listed
 post '/signup' do
@@ -96,7 +95,6 @@ post '/session' do
   end
 end
 
-
 post "/upload" do 
   @user = User.find_by_session_token(session[:session_token])
   filename = @user.id.to_s
@@ -114,7 +112,6 @@ post "/upload" do
   redirect '/profilepage'
   end
 end
-
 
 # def function1 
 #   return whether there is an image for the user (boolean)
