@@ -46,16 +46,16 @@
   <% if @user %>
     <a href="/welcome"><button type="button" class="btn btn-success">Play Now!</button></a>
     <a href="/logout"><button type="button" class="btn btn-danger">Logout</button></a>
-    <% else %>
-<a href="/signup"><button type="button" class="btn btn-danger">Sign Up</button></a>
-        <div class="dropdown" id="menuLogin">
-            <button class="dropdown-toggle btn btn-success" type="button" href="#" data-toggle="dropdown" id="navLogin">Login</button>
-            <div class="dropdown-menu" style="padding:17px;">
-              <form action="/session" method="POST"> 
-                <input name="username" type="username" placeholder="Username"> 
-                <input name="password" type="password" placeholder="Password"><br>
-                <button type="submit" class="btn btn-success">Go</button>
-              </form>
+  <% else %>
+    <a href="/signup"><button type="button" class="btn btn-danger">Sign Up</button></a>
+      <div class="dropdown" id="menuLogin">
+        <button class="dropdown-toggle btn btn-success" type="button" href="#" data-toggle="dropdown" id="navLogin">Login</button>
+        <div class="dropdown-menu" style="padding:17px;">
+          <form action="/session" method="POST"> 
+            <input name="username" type="username" placeholder="Username"> 
+            <input name="password" type="password" placeholder="Password"><br>
+            <button type="submit" class="btn btn-success">Go</button>
+        </form>
             </div>
         </div>  
   <% end %>
