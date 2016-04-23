@@ -1,32 +1,39 @@
-
-
 <div class="container padnav">
-<h2>Feel like playing some <%= @sport.name %> eh?</h2>
+  <% if @sport.id != 3 %>
+    <h2>Feel like playing some <%= @sport.name %> eh?</h2>
+  <% else %>
+    <h2>Feel like doing some <%= @sport.name %> eh?</h2>
+  <% end %>
 
-<a href= "/create"><button type="button" class= "btn btn-success">CREATE MATCH</h1></button></a>
-<h2>Open Matches</h2>
-<table class="table">
-<thead>
-<tr>
-<th>#</th>
-<th>Location</th>
-<th>Match Creator</th>
-<th>Created At</th>
-</tr>
-</thead>
-<tbody>
-<% @num=1 %>
-<% @matches.each do |match| %>
-<tr>
-<td><%= @num %></td>
-<td><%= match.address %></td>
-<td><%= match.player_one.username %></td>
-<td><%= match.created_at.to_date %></td>
-</tr>
-<% @num +=1 %>
-<% end %>
-</tbody>
-</table>
+  <a href= "/create">
+    <button type="button" class= "btn btn-success">CREATE MATCH</button>
+  </a>
+  <h2>Open Matches</h2>
+  <table class="table">
+    <thead>
+      <tr class="text-red">
+        <th>#</th>
+        <th>Location</th>
+        <th>Match Creator</th>
+        <th>Created At</th>
+        <th></th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @num=1 %>
+      <% @matches.each do |match| %>
+      <tr>
+       <td><a href="/<%= match.id %>"><%= @num %></a></td>
+        <td><%= match.address %></td>
+        <td class="text-capitalize"><%= match.player_one.username %></td>
+        <td><%= match.created_at.to_date %></td>
+        <td><a href="/<%= match.id %>"><button type="button" class="btn-success"> Open Match</button></a></td>
+      </tr>
+      <% @num +=1 %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 
