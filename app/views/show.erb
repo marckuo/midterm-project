@@ -18,9 +18,10 @@
         <button type="submit" name="challenge" class="btn btn-danger">Join</button>
       </form>
     <% else %>
-      <form action="/challenge/<%= @match.id %>" method="POST">
-        <button type="submit" name="challenge" class="btn btn-danger">Join</button>
+      <form method="POST">
+        <button type="submit" name="review" class="btn btn-danger"><a href="/match/:id/review">Review</button>
       </form>
+    <% end %>
   </div>
     <div class="col-lg-1"></div>
   </div>
