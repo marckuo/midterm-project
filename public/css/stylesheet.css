@@ -132,6 +132,10 @@ h3 {
   border: none;
 }
 
+.transparent > img {
+  width: 100%;
+}
+
 /*carousel*/
 
 .carousel {

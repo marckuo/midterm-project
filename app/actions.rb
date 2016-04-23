@@ -42,7 +42,7 @@ get "/create" do
   erb :'create'
 end  
 
-get "/match" do 
+get "/match" do
   @user = User.find_by_session_token(session[:session_token])
   @sport = Sport.find_by(id: session[:sport_id])
   @matches = @sport.matches.select do |match| 
