@@ -19,7 +19,7 @@
       </form>
     <% else %>
       <form method="POST">
-        <button type="submit" name="review" class="btn btn-danger"><a href="/match/:id/review">Review</button>
+        <button type="submit" name="review" class="btn btn-danger"><a href="/match/<%= @match.id %>/review">Review</a></button>
       </form>
     <% end %>
   </div>
