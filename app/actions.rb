@@ -51,7 +51,7 @@ get "/match" do
   erb :'match'
 end
 
-get "/:id" do
+get "/match/:id" do
   @match = Match.find params[:id]
   erb :'show'
 end

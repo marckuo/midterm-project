@@ -24,11 +24,11 @@
       <% @num=1 %>
       <% @matches.each do |match| %>
       <tr>
-       <td><a href="/<%= match.id %>"><%= @num %></a></td>
+       <td><a href="/match/<%= match.id %>"><%= @num %></a></td>
         <td><%= match.address %></td>
         <td class="text-capitalize"><%= match.player_one.username %></td>
         <td><%= match.created_at.to_date %></td>
-        <td><a href="/<%= match.id %>"><button type="button" class="btn-success"> Open Match</button></a></td>
+        <td><a href="/match/<%= match.id %>"><button type="button" class="btn-success"> Open Match</button></a></td>
       </tr>
       <% @num +=1 %>
       <% end %>
