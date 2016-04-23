@@ -56,6 +56,11 @@ get "/match/:id" do
   erb :'show'
 end
 
+get "/match/:id/review" do
+    @match = Match.find params[:id]
+    erb :'review'
+end
+
 def user_authenticate!
   redirect '/login' unless session.has_key?(:session_token)
   if !session.has_key?(:user_session) || !User.find_by_session_token(session[:session_token])
@@ -163,7 +168,7 @@ post '/challenge/:id' do
   @match.player_two_id = @user.id
   @match.save
   
-  redirect '/:id'
+  redirect "/match/#{@match.id}"
 end
 
 #logout

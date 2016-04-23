@@ -3,20 +3,24 @@
     <div class="col-lg-1"></div>
     <div class="col-lg-3">
     <h1 class="text-capitalize"><%= @match.player_one.username%></h1>
+    
+    <% if @match.player_two %>
+    vs
+     <h1 class="text-capitalize"><%= @match.player_two.username%></h1>
+     <% end %>
+
     </div>
     <div class="col-lg-4"></div>
     <div class="col-lg-3 padnav">
 
-    <% if @match.player_one && @match.player_two != nil%>
+    <% if @match.player_two == nil %>
       <form action="/challenge/<%= @match.id %>" method="POST">
         <button type="submit" name="challenge" class="btn btn-danger">Join</button>
       </form>
-      <% else %>
-          <form method="POST">
-          <button type="submit" name="review" class="btn btn-danger"><a href= "/review">Review</a></button>
+    <% else %>
+      <form action="/challenge/<%= @match.id %>" method="POST">
+        <button type="submit" name="challenge" class="btn btn-danger">Join</button>
       </form>
-      <% end %>    
-
   </div>
     <div class="col-lg-1"></div>
   </div>
