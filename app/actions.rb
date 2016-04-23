@@ -162,7 +162,8 @@ post '/challenge/:id' do
   @match = Match.find (params[:id])
   @match.player_two_id = @user.id
   @match.save
-  erb :welcome
+  
+  redirect '/:id'
 end
 
 #logout
