@@ -66,6 +66,15 @@ get "/match/:id/review" do
     erb :'review'
 end
 
+get "/match_history" do
+  @user = User.find_by_session_token(session[:session_token])
+  # @matches = @user.matches
+  @matches = Match.all.select do |match|
+    (@user.id == match.player_one_id) || (@user.id == match.player_two_id)
+  end
+  erb :'match_history'
+end
+
 def user_authenticate!
   redirect '/login' unless session.has_key?(:session_token)
   if !session.has_key?(:user_session) || !User.find_by_session_token(session[:session_token])

@@ -1,0 +1,13 @@
+<hr/>
+<hr/>
+
+
+<h3>Your previous matches!</h3>
+
+<% @matches.each do |match| %>
+      
+        <%= match.created_at %>
+        <%= match.player_one.username %>
+        <%= match.created_at.to_date %>
+        </br>
+      <% end %>
