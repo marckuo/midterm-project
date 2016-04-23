@@ -14,6 +14,9 @@ Username:
 Email:
 <%= @user.email %>
 </br>
+Overall Rating: 
+<% rating %>
+</br>
 
 <% if @user.profile_pic? %>
   <img src = "uploads/<%=@user.profile_pic%>">
@@ -21,6 +24,8 @@ Email:
 
 
 <h2><a href = "/upload">upload</a></h2>
+
+
 
 
 </h2>

@@ -1,1 +1,14 @@
-<h3><%= @matches %></h3>
+<h1><a href= "/summary">summary</a></h1>
+
+<h1>Here is your list of matches that were played: <%= @user.username %> eh?</h1>
+
+
+<% @reviews.each do |review| %>
+<div>
+  <h4><a href="<%= review.rating %>">Opponent: <%= review.rating %></a></h4>
+  <p>
+  </p>
+  (Created on <%= .created_at.to_date %>)
+  </div>
+  <hr>  
+<% end %>

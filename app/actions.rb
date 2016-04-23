@@ -57,11 +57,12 @@ get "/match/:id" do
 end
 
 get "/match/:id/review" do
-    @user = User.find_by_session_token(session[:session_token])
-    @match = Match.find_by(id: session[:match_id])
-    @reviews = @match.reviews.select do |review|
-       match.player_one_id != @user.id && match.player_two_id == nil
-    end
+    # @user = User.find_by_session_token(session[:session_token])
+    # @match = Match.find_by(id: session[:match_id])
+    # @reviews = @match.reviews.select do |review|
+    #    match.player_one_id != @user.id && match.player_two_id == nil
+    # end
+    @match = Match.find params[:id]
     erb :'review'
 end
 
@@ -171,8 +172,8 @@ post '/challenge/:id' do
   @user = User.find_by_session_token(session[:session_token])
   @match = Match.find (params[:id])
   @match.player_two_id = @user.id
+  # binding.pry
   @match.save
-  
   redirect "/match/#{@match.id}"
 end
 
@@ -180,11 +181,54 @@ end
 
 post "/match/:id/review" do
     @user = User.find_by_session_token(session[:session_token])
-    @match = Match.find_by(id: session[:match_id])
-    @reviews = @match.reviews.select do |review|
-       match.player_one_id != @user.id && match.player_two_id == nil
-    end
-    erb :'review'
+    # @match = Match.find_by(id: session[:match_id])
+    # @match = Match.find_by(params [:id])
+    # binding.pry
+    # grab star rating  
+    @match = Match.find params[:id]
+    # @review_rating = params[:star]
+    Review.create(from_user_id: @match.player_one_id, to_user_id: @match.player_two_id, rating: params[:star], match_id: @match.id)
+    redirect "/match/#{@match.id}"
+
+
+    # binding.pry
+
+    # save review
+    # @review.save
+
+    # # redirect to match page 
+    
+
+
+
+
+
+  # def reviewed_by_player
+  #   User.find_by(id: from_user_id)
+  # end
+
+  # def reviewed_player
+  #   User.find_by(id: to_user_id)
+  # end
+
+# class CreateReviews < ActiveRecord::Migration
+#   def change
+#     create_table :reviews do |t|
+#       t.datetime :created_at
+#       t.integer  :rating
+#       t.integer  :from_user_id
+#       t.integer  :to_user_id
+#       t.string   :comments
+#       t.integer  :match_id
+#     end
+#   end
+# end
+
+
+    # @reviews = @match.reviews.select do |review|
+    #    match.player_one_id != @user.id && match.player_two_id == nil
+    # end
+    # erb :'review'
 end
 
 #logout

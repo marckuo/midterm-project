@@ -1,7 +1,6 @@
 class Match < ActiveRecord::Base
   
   has_many   :reviews
-  # belongs_to :user
   belongs_to :sports
   validates  :sport_id, presence: true
 
@@ -14,4 +13,3 @@ class Match < ActiveRecord::Base
     User.find_by(id: player_two_id)
   end
 end
-
