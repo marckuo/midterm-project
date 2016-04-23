@@ -6,9 +6,17 @@
     </div>
     <div class="col-lg-4"></div>
     <div class="col-lg-3 padnav">
+
+    <% if @match.player_one && @match.player_two != nil%>
       <form action="/challenge/<%= @match.id %>" method="POST">
         <button type="submit" name="challenge" class="btn btn-danger">Join</button>
       </form>
+      <% else %>
+          <form method="POST">
+          <button type="submit" name="review" class="btn btn-danger"><a href= "/review">Review</a></button>
+      </form>
+      <% end %>    
+
   </div>
     <div class="col-lg-1"></div>
   </div>
