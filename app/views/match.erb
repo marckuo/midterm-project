@@ -1,14 +1,32 @@
-<h1><a href= "/create">create page</a></h1>
-
-<h1>Feel like playing some <%= @sport.name %> eh?</h1>
 
 
+<div class="container padnav">
+<h2>Feel like playing some <%= @sport.name %> eh?</h2>
+
+<a href= "/create"><button type="button" class= "btn btn-success">CREATE MATCH</h1></button></a>
+<h2>Open Matches</h2>
+<table class="table">
+<thead>
+<tr>
+<th>#</th>
+<th>Location</th>
+<th>Match Creator</th>
+<th>Created At</th>
+</tr>
+</thead>
+<tbody>
+<% @num=1 %>
 <% @matches.each do |match| %>
-<div>
-  <h4><a href="<%= match.id %>">Opponent: <%= match.player_one.username %></a></h4>
-  <p>
-  </p>
-  (Created on <%= match.created_at.to_date %>)
-  </div>
-  <hr>  
+<tr>
+<td><%= @num %></td>
+<td><%= match.address %></td>
+<td><%= match.player_one.username %></td>
+<td><%= match.created_at.to_date %></td>
+</tr>
+<% @num +=1 %>
 <% end %>
+</tbody>
+</table>
+</div>
+
+
