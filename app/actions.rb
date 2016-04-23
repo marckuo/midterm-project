@@ -57,11 +57,11 @@ get "/match/:id" do
 end
 
 get "/match/:id/review" do
-    @user = User.find_by_session_token(session[:session_token])
-    @match = Match.find_by(id: session[:match_id])
-    @reviews = @match.reviews.select do |review|
-       match.player_one_id != @user.id && match.player_two_id == nil
-    end
+    # @user = User.find_by_session_token(session[:session_token])
+    # @match = Match.find_by(id: session[:match_id])
+    # @reviews = @match.reviews.select do |review|
+    #    match.player_one_id != @user.id && match.player_two_id == nil
+    # end
     erb :'review'
 end
 
@@ -181,10 +181,12 @@ end
 post "/match/:id/review" do
     @user = User.find_by_session_token(session[:session_token])
     @match = Match.find_by(id: session[:match_id])
-    @reviews = @match.reviews.select do |review|
-       match.player_one_id != @user.id && match.player_two_id == nil
-    end
-    erb :'review'
+
+
+    # @reviews = @match.reviews.select do |review|
+    #    match.player_one_id != @user.id && match.player_two_id == nil
+    # end
+    # erb :'review'
 end
 
 #logout
