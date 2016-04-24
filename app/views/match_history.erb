@@ -9,5 +9,14 @@
         <%= match.created_at %>
         <%= match.player_one.username %>
         <%= match.created_at.to_date %>
+        <% match.reviews.each do |review| %>>
+      <% review.rating.times do %>
+      <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
+    <label class="star star-1" for="star-1"></label>
+      <% end %>
+     <% end %>
+     </br>
+     </br>
+        </br>
         </br>
       <% end %>
