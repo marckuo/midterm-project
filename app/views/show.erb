@@ -7,6 +7,13 @@
     <% if @match.player_two %>
     vs
      <h1 class="text-capitalize"><%= @match.player_two.username%></h1>
+     <% @match.reviews.each do |review| %>>
+      <% review.rating.times do %>
+        <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
+        <label class="star star-1" for="star-1"></label>
+      <% end %>
+     <% end %>
+
      <% end %>
 
     </div>
@@ -17,7 +24,7 @@
       <form action="/challenge/<%= @match.id %>" method="POST">
         <button type="submit" name="challenge" class="btn btn-danger">Join</button>
       </form>
-    <% else %>
+    <% elsif @match.reviews.length == 0 %>
       <button name="review" class="btn btn-danger">
         <a href= <%= "/match/#{@match.id}/review" %> >
         Review

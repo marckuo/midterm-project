@@ -52,8 +52,9 @@ get "/match" do
 end
 
 get "/match/:id" do
+  # @user = User.find_by(id: params[:id])
   @match = Match.find params[:id]
-  erb :'show'
+    erb :'show'
 end
 
 get "/match/:id/review" do
@@ -180,6 +181,7 @@ end
 post '/challenge/:id' do 
   @user = User.find_by_session_token(session[:session_token])
   @match = Match.find (params[:id])
+
   @match.player_two_id = @user.id
   # binding.pry
   @match.save
@@ -198,7 +200,7 @@ post "/match/:id/review" do
     # @review_rating = params[:star]
     Review.create(from_user_id: @match.player_one_id, to_user_id: @match.player_two_id, rating: params[:star], match_id: @match.id)
     redirect "/match/#{@match.id}"
-
+end
 
     # binding.pry
 
@@ -238,7 +240,6 @@ post "/match/:id/review" do
     #    match.player_one_id != @user.id && match.player_two_id == nil
     # end
     # erb :'review'
-end
 
 #logout
 get '/session/sign_out' do
